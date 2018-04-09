@@ -1,0 +1,41 @@
+<section>
+  Media Spotlight: TODO LINK NAME OF WORK WITH TOP VOTES
+  <br /> TO DO Show # Votes - category
+</section>
+
+<section>
+  <div>
+    <h3>Top Movies</h3>
+    <ul>
+      <% @works_movies.limit(10).each do |movie| %>
+      <li>
+        <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %> <br /> TODO Show # votes
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <h3>Top Books</h3>
+    <ul>
+      <ul>
+        <% @works_books.limit(10).each do |book| %>
+        <li>
+          <%= link_to book.title, work_path(book.id) %> by <%= book.creator %> <br /> TODO Show # votes
+        </li>
+        <% end %>
+      </ul>
+    </ul>
+  </div>
+  <div>
+    <h3>Top Albums</h3>
+    <ul>
+      <ul>
+        <% @works_albums.limit(10).each do |album| %>
+        <li>
+          <%= link_to album.title, work_path(album.id) %> by <%= album.creator %> <br /> TODO Show # votes
+        </li>
+        <% end %>
+      </ul>
+    </ul>
+  </div>
+</section>

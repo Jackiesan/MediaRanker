@@ -1,4 +1,10 @@
 class WorksController < ApplicationController
+  def main
+    @works_movies = Work.where(category: "movie")
+    @works_books = Work.where(category: "book")
+    @works_albums = Work.where(category: "album")
+  end
+
   def index
     @works_movies = Work.where(category: "movie")
     @works_books = Work.where(category: "book")
