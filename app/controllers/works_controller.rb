@@ -1,6 +1,5 @@
 class WorksController < ApplicationController
   def main
-    @works = Work.all
     @works_movies = Work.where(category: "movie")
     @works_books = Work.where(category: "book")
     @works_albums = Work.where(category: "album")
@@ -30,7 +29,7 @@ class WorksController < ApplicationController
   end
 
   def edit
-
+    @work = Work.find_by(id: params[:id])
   end
 
   def update
