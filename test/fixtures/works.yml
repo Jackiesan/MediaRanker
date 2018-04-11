@@ -4,8 +4,10 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+
+book_1:
+  category: book
+  title: Goodnight Moon
+  creator: Margaret Wise Brown
+  publication_year: 1979
+  description: Bunny says goodnight to all objects.
