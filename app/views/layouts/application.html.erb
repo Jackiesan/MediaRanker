@@ -22,7 +22,12 @@
       <a class="button" href="/">View top media</a>
       <a class="button" href="/works">View all media</a>
       <a class="button" href="/works/new">Add a new work</a>
-      <a class="button" href="/">TODO VIEW USERS</a>
+      <% if @user %>
+      <a class="button" href="/">Logged in as <% @user.name%> </a>
+      <a class="button" href="/logout">Logout</a>
+      <% else %>
+      <a class="button" href="/login_form">Login</a>
+      <%end%>
     </nav>
 
 
