@@ -20,10 +20,12 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new
+    @work = Work.new(work_params)
     if @work.save
+      flash[:success] = "#{@work.title} saved"
       redirect_to works_path
     else
+      flash.now[:alert] = @work.errors
       render :new
     end
   end
@@ -36,8 +38,10 @@ class WorksController < ApplicationController
     @work = Work.find_by(id: params[:id])
     if !@work.nil?
       if @work.update(work_params)
-        redirect_to work_path
+        flash[:success] = "#{@work.title} updated"
+        redirect_to work_path(@work.id)
       else
+        flash[:alert] = @work.errors
         render :edit
       end
     else
@@ -47,17 +51,14 @@ class WorksController < ApplicationController
 
   def destroy
     @work = Work.find_by(id: params[:id])
-    if @work.destroy
-      redirect_to works_path
-    else
-      render :new
-    end
+    @work.destroy
+    redirect_to works_path
   end
 
   private
 
   def work_params
-    params.require(:task).permit(:title, :category, :creator, :publication_year, :description)
+    params.require(:work).permit(:title, :category, :creator, :publication_year, :description)
   end
 
 end

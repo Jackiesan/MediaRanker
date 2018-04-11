@@ -9,7 +9,7 @@
   <a class="button" href="/">Back to media ranks</a>
   <%= link_to "Edit", edit_work_path, class: "button" %>
   <a class="button" href=#>Upvote</a>
-  <a class="alert button" data-confirm data-method="Are you sure?" method="delete" href="/works/id">Delete</a>
+  <%= link_to "Delete", work_path(@work.id), class: "button", method: :delete %>
 </section>
 
 <article>
