@@ -22,8 +22,8 @@
       <a class="button" href="/">View top media</a>
       <a class="button" href="/works">View all media</a>
       <a class="button" href="/works/new">Add a new work</a>
-      <% if @user %>
-      <a class="button" href="/">Logged in as <% @user.name %> </a>
+      <% if @user && @user.id %>
+      <%=link_to "Logged in as #{@user.name}", user_path(@user.id), method: :get, class: "button" %>
       <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
       <% else %>
       <a class="button" href="/login">Login</a>
