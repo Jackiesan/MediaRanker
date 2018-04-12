@@ -14,7 +14,7 @@
 
   <header class="page-header row">
     <h2>
-      <%=  link_to "Media Ranker", works_path %>
+      <%=  link_to "Media Ranker", root_path %>
       <small>Ranking the Best of Everything</small>
     </h2>
 
@@ -22,6 +22,7 @@
       <a class="button" href="/">View top media</a>
       <a class="button" href="/works">View all media</a>
       <a class="button" href="/works/new">Add a new work</a>
+      <a class="button" href="/users">View all users</a>
       <% if @user && @user.id %>
       <%=link_to "Logged in as #{@user.name}", user_path(@user.id), method: :get, class: "button" %>
       <%= link_to "Logout", logout_path, method: :delete, class: "button" %>

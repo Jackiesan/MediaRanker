@@ -1,2 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h3>User Summary: <%= link_to "#{@user.name}", user_path(@user.id), method: :get %></h3>
+<p>
+  Joined site <%= @user.created_at.strftime('%b %d, %Y')%>
+</p>
+<h4>Votes</h4>
+<p>
+  TODO: TABLE WITH VOTES
+</p>
