@@ -61,7 +61,7 @@ class WorksController < ApplicationController
     @vote.user = User.find(session[:user_id])
     @vote.work = Work.find_by(id: params[:id])
     if @vote.save
-      redirect_to root_path
+      redirect_back(fallback_location: root_path)
     else
     end
   end
