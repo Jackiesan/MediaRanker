@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_action :find_user
+
   def main
     @works_movies = Work.where(category: "movie")
     @works_books = Work.where(category: "book")

@@ -23,10 +23,10 @@
       <a class="button" href="/works">View all media</a>
       <a class="button" href="/works/new">Add a new work</a>
       <% if @user %>
-      <a class="button" href="/">Logged in as <% @user.name%> </a>
-      <a class="button" href="/logout">Logout</a>
+      <a class="button" href="/">Logged in as <% @user.name %> </a>
+      <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
       <% else %>
-      <a class="button" href="/login_form">Login</a>
+      <a class="button" href="/login">Login</a>
       <%end%>
     </nav>
 
