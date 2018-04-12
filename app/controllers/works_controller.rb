@@ -1,5 +1,4 @@
 class WorksController < ApplicationController
-  before_action :find_user
 
   def main
     @works_movies = Work.where(category: "movie")
@@ -55,6 +54,16 @@ class WorksController < ApplicationController
     @work = Work.find_by(id: params[:id])
     @work.destroy
     redirect_to works_path
+  end
+
+  def upvote
+    @vote = Vote.new
+    @vote.user = User.find(session[:user_id])
+    @vote.work = Work.find_by(id: params[:id])
+    if @vote.save
+      redirect_to root_path
+    else
+    end
   end
 
   private

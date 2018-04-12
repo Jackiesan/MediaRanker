@@ -63,7 +63,7 @@
           Published
         </th>
         <th width="100">
-          Upvote
+          Vote
         </th>
       </tr>
     </thead>
@@ -83,7 +83,7 @@
           <%= t.publication_year %>
         </td>
         <td>
-          Upvote b.
+          <%= link_to "Upvote", upvote_path(t.id), class: "button upvote", method: :post %>
         </td>
       </tr>
       <% end %>

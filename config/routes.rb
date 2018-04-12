@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root 'works#main'
 
+  root 'works#main'
+  post 'works/:id/upvote', to: 'works#upvote', as: 'upvote'
   resources :users, only: [:index, :show]
 
   get '/login', to: 'sessions#new', as: 'login_form'
@@ -8,4 +9,6 @@ Rails.application.routes.draw do
   delete '/login', to: 'sessions#destroy', as: 'logout'
 
   resources :works
+
+
 end
