@@ -12,4 +12,5 @@ class Work < ApplicationRecord
     return Work.all.sort_by{|work| -work.votes.count}
   end
 
+
 end

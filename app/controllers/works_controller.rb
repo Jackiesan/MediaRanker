@@ -59,19 +59,31 @@ class WorksController < ApplicationController
   end
 
   def upvote
+    user = User.find_by(id: session[:user_id])
+
     @vote = Vote.new
-    @vote.user = User.find(session[:user_id])
+    @vote.user = user
     @vote.work = Work.find_by(id: params[:id])
     if @vote.save
+      flash[:success] = "Successfully upvoted!"
+
+      redirect_back(fallback_location: root_path)
+    elsif @user != nil
+      flash[:alert] = "Could not upvote"
+      flash[:error] = @vote.errors.first[1]
+
+      # flash[:notice] = @vote.errors.first[1]
+
       redirect_back(fallback_location: root_path)
     else
+      flash[:alert] = "Must be logged in"
+      redirect_back(fallback_location: root_path)    end
     end
+
+    private
+
+    def work_params
+      params.require(:work).permit(:title, :category, :creator, :publication_year, :description)
+    end
+
   end
-
-  private
-
-  def work_params
-    params.require(:work).permit(:title, :category, :creator, :publication_year, :description)
-  end
-
-end
