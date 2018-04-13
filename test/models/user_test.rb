@@ -19,15 +19,6 @@ describe User do
   it "will not create a new user with the same name as existing user" do
     value(duplicate_dan).wont_be :valid?
   end
-  #
-  # it "must not be valid without a work" do
-  #   vote_1.work = nil
-  #   value(vote_1).wont_be :valid?
-  #   vote_1.errors.messages.must_include :work
-  # end
-  #
-  # it "vote will not be created if user has already voted for that work" do
-  #   value(vote_2).wont_be :valid?
-  # end
+
 
 end

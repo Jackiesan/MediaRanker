@@ -1,17 +1,39 @@
-<article>
+<article class="media-details">
   <h3><%= @work.title %></h3>
   <p>Created by: <%= @work.creator %></p>
   <p>Published: <%= @work.publication_year %></p>
-  <p></p>
+  <p><%= @work.description%></p>
+
+  <section>
+    <a class="button" href="/">Back to media ranks</a>
+    <%= link_to "Edit", edit_work_path, class: "button" %>
+    <%= link_to "Upvote", upvote_path(@work.id), class: "button", method: :post %>
+    <%= link_to "Delete", work_path(@work.id), class: "alert button", method: :delete %>
+  </section>
 </article>
 
-<section>
-  <a class="button" href="/">Back to media ranks</a>
-  <%= link_to "Edit", edit_work_path, class: "button" %>
-  <%= link_to "Upvote", upvote_path(@work.id), class: "button", method: :post %>
-  <%= link_to "Delete", work_path(@work.id), class: "alert button", method: :delete %>
-</section>
 
-<article>
+<article class="voting-users">
   <h3><%= @work.votes.count %> Votes for this <%= @work.category %></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @work.votes.each do |v|  %>
+      <tr>
+        <td>
+          <%= link_to v.user.name, user_path(v.user.id) %>
+        </td>
+        <td>
+          <%= v.created_at.strftime('%b %d, %Y') %>
+        </td>
+      </tr>
+      <% end  %>
+    </tbody>
+  </table>
 </article>
