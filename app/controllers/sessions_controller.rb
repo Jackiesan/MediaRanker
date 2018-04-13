@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   def create
+
     @user = User.find_by name: params[:user][:name]
+    @user.name = @user.name.downcase.gsub(" ", "").strip
 
     if @user
       session[:user_id] = @user.id
