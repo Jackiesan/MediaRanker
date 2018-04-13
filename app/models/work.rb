@@ -8,4 +8,8 @@ class Work < ApplicationRecord
     return Work.all.sort_by{|work| -work.votes.count}.first
   end
 
+  def self.order_by_vote
+    return Work.all.sort_by{|work| -work.votes.count}
+  end
+
 end

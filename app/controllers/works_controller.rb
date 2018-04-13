@@ -1,9 +1,9 @@
 class WorksController < ApplicationController
 
   def main
-    @works_movies = Work.where(category: "movie").sort_by{|work| -work.votes.count}
-    @works_books = Work.where(category: "book").sort_by{|work| -work.votes.count}
-    @works_albums = Work.where(category: "album").sort_by{|work| -work.votes.count}
+    @works_movies = Work.where(category: "movie").order_by_vote
+    @works_books = Work.where(category: "book").order_by_vote
+    @works_albums = Work.where(category: "album").order_by_vote
     @spotlight = Work.spotlight
   end
 
