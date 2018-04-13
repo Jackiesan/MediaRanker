@@ -42,7 +42,7 @@ class WorksController < ApplicationController
         flash[:success] = "#{@work.title} updated"
         redirect_to work_path(@work.id)
       else
-        flash[:alert] = @work.errors
+        flash[:failure] = @work.errors
         render :edit
       end
     else
