@@ -20,7 +20,7 @@
         <%= link_to u.name, user_path(u.id) %>
       </td>
       <td>
-        TODO: VOTES
+        <%= u.votes.count %>
       </td>
       <td>
         <%= u.created_at.strftime('%b %d, %Y') %>
@@ -29,6 +29,3 @@
     <% end %>
   </tbody>
 </table>
-
-<!--
-  <%= link_to "#{@user.name}", user_path(@user.id), method: :get  %> -->
