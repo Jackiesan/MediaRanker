@@ -14,7 +14,13 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find_by(id: params[:id])
+    work = Work.find_by(id: params[:id])
+    if work == nil
+      flash[:alert] = "Work does not exist"
+      redirect_to works_path
+    else
+      @work = work
+    end
   end
 
   def new
@@ -54,8 +60,15 @@ class WorksController < ApplicationController
 
   def destroy
     @work = Work.find_by(id: params[:id])
-    @work.destroy
-    redirect_to works_path
+    begin
+      if @work.destroy
+        flash[:success] = "DELETED"
+        redirect_to works_path
+
+      end
+    rescue
+      flash[:alert] = "Book does not exist"
+    end
   end
 
   def upvote
