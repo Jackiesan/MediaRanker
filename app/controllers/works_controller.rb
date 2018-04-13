@@ -70,9 +70,8 @@ class WorksController < ApplicationController
       redirect_back(fallback_location: root_path)
     elsif @user != nil
       flash[:alert] = "Could not upvote"
-      flash[:error] = @vote.errors.first[1]
 
-      # flash[:notice] = @vote.errors.first[1]
+      flash[:notice] = @vote.errors.first[1]
 
       redirect_back(fallback_location: root_path)
     else

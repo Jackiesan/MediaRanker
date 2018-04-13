@@ -4,6 +4,8 @@ class Work < ApplicationRecord
   validates :category, presence: true, inclusion: { in: %w(book movie album), message: "%{value} is not a valid category" }
   has_many :votes
 
+
+
   def self.spotlight
     return Work.all.sort_by{|work| -work.votes.count}.first
   end

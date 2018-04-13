@@ -37,6 +37,7 @@
   <main>
     <% flash.each do |name, message| %>
   <section class = " row status <%= name%> " >
+
     <h3><%= message %></h3>
     <% @object = @work || @object = @vote || @object = @user %>
     <% if @object != nil && @object.errors.any?%>
