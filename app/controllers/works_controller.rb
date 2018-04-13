@@ -26,7 +26,7 @@ class WorksController < ApplicationController
       flash[:success] = "#{@work.title} saved"
       redirect_to works_path
     else
-      flash.now[:alert] = @work.errors
+      flash[:failure] = @work.errors
       render :new
     end
   end

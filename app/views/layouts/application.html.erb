@@ -35,6 +35,31 @@
   </header>
 
   <main>
+    <% if !flash.empty? %>
+    <section class="flash">
+      <% flash.each do |name, message| %>
+      <section class="row status <%= name %>">
+        <% if name == "alert" %>
+        <h3>A problem occured</h3>
+        <ul>
+          <% flash[:alert].each do |field, message| %>
+          <li>
+            <strong><%= field %>: </strong>
+            <%= message %>
+          </li>
+          <% end %>
+        </ul>
+        <% elsif name == "failure"%>
+        <% else %>
+        <h3>
+          <%= message %>
+        </h2>
+        <% end %>
+      </section>
+      <% end %>
+    </section>
+    <% end %>
+
 
     <%= yield %>
   </main>

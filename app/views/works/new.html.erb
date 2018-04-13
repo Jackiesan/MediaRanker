@@ -1,1 +1,22 @@
-<%= render partial: "form", locals: {page_title: "Add a new work"} %>
+<% if !flash.empty? %>
+<section class="flash">
+  <% flash.each do |name, message| %>
+  <section class="row status <%= name %>">
+    <% if name == "failure" %>
+
+    <h3>A problem occurred: Could not create <%= @work.category %></h3>
+    <ul>
+      <% flash[:failure].each do |field, message| %>
+      <li>
+        <strong><%= field %>: </strong>
+        <%= message %>
+      </li>
+      <% end %>
+      <% end %>
+    </section>
+    <% end %>
+  </section>
+  <% end %>
+
+
+  <%= render partial: "form", locals: {page_title: "Add a new work"} %>
