@@ -8,9 +8,9 @@ class WorksController < ApplicationController
   end
 
   def index
-    @works_movies = Work.where(category: "movie")
-    @works_books = Work.where(category: "book")
-    @works_albums = Work.where(category: "album")
+    @works_movies = Work.where(category: "movie").order_by_vote
+    @works_books = Work.where(category: "book").order_by_vote
+    @works_albums = Work.where(category: "album").order_by_vote
   end
 
   def show
