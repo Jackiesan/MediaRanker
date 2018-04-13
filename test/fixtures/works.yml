@@ -11,3 +11,9 @@ book_1:
   creator: Margaret Wise Brown
   publication_year: 1979
   description: Bunny says goodnight to all objects.
+movie_1:
+  category: movie
+  title: James Bond
+  creator: Ian Fleming
+  publication_year: 1960
+  description: Spy movie
