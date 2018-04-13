@@ -35,6 +35,21 @@
   </header>
 
   <main>
+    <% flash.each do |name, message| %>
+  <section class = " row status <%= name%> " >
+    <h3><%= message %></h3>
+    <% @object = @work || @object = @vote || @object = @user %>
+    <% if @object != nil && @object.errors.any?%>
+      <ul>
+        <% @object.errors.each do |field, message| %>
+          <li>
+            <strong><%= field %>:</strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </section>
+<% end %>
 
     <%= yield %>
   </main>

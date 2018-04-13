@@ -27,7 +27,7 @@ class WorksController < ApplicationController
       flash[:success] = "#{@work.title} saved"
       redirect_to works_path
     else
-      flash.now[:alert] = @work.errors
+      flash[:alert] = "Could not create #{@work.category}"
       render :new
     end
   end
@@ -43,7 +43,8 @@ class WorksController < ApplicationController
         flash[:success] = "#{@work.title} updated"
         redirect_to work_path(@work.id)
       else
-        flash[:alert] = @work.errors
+        flash[:alert] = "A problem occurred: Could not update #{@work.category}"
+
         render :edit
       end
     else
