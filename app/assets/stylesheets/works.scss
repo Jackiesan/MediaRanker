@@ -1,12 +1,68 @@
 // Place all the styles related to the Works controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.top-ten {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+// .top-ten-container {
+//     margin-top: 75px;
+//     display: grid;
+//     grid-template-columns: 1fr 1fr 1fr;
+//     grid-column-gap: 2em;
+// }
+
+.top-ten div {
+  padding-right: 30px;
 }
 
-// .top-ten div {
-//   padding-right: 30px;
-// }
+.media-spotlight-header {
+    color: #424242;
+}
+.spotlight a {
+    border-bottom: 2px solid;
+}
+
+section.spotlight div {
+    padding: 0 2rem 2rem 2rem;
+}
+
+.root-hr {
+    margin: 0px auto 75px auto;
+    color: #EEEEEE;
+}
+
+.row {
+    max-width: 75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+section {
+  display: grid;
+}
+
+.top-ten-container {
+    margin-top: 75px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
+}
+
+.top-ten h3 {
+    border-bottom: 2px solid;
+    border-bottom-color: #B2DFDB;
+}
+
+.top-ten ul {
+    list-style-type: none;
+    margin-left: 0px;
+}
+
+.top-ten a {
+    font-size: 25px;
+}
+
+.top-ten a {
+  font-weight: bold;
+}
+
+body small {
+    color: rgb(112, 128, 144)
+}

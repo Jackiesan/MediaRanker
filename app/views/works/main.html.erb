@@ -1,43 +1,41 @@
-<div>
-  <h3>Media Spotlight: <%= link_to @spotlight.title, work_path(@spotlight.id) %> by </h3>
-  <p>
-    <%= @spotlight.votes.count %> votes - <%= @spotlight.description %>
-  </p>
-</div>
-
-<section class="top-ten">
+<section class="row spotlight">
   <div>
+    <h3><span class="media-spotlight-header">Media Spotlight:</span> <%= link_to @spotlight.title, work_path(@spotlight.id) %> by <%= @spotlight.creator %> </h3>
+    <p>
+      <%= @spotlight.votes.count %> votes - <%= @spotlight.description %>
+    </p>
+  </div>
+</section>
+
+<hr class="root-hr">
+<section class="top-ten-container">
+  <section class="top-ten">
     <h3>Top Movies</h3>
+    <% @works_movies[0..9].each do |movie| %>
+    <li>
+      <h4><%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %><small>by <%= movie.creator %></small></h4> <p> <%= movie.votes.count %> Votes </p>
+    </li>
+    <% end %>
+  </section>
+  <section class="top-ten">
+    <h3>Top Books</h3>
     <ul>
-      <% @works_movies[0..9].each do |movie| %>
+      <% @works_books[0..9].each do |book| %>
       <li>
-        <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %> <br /> <%= movie.votes.count %> Votes
+        <h4><%= link_to book.title, work_path(book.id) %> <small>by <%= book.creator %> </small></h4><p> <%= book.votes.count %> Votes </p>
       </li>
       <% end %>
     </ul>
-  </div>
-  <div>
-    <h3>Top Books</h3>
-    <ul>
-      <ul>
-        <% @works_books[0..9].each do |book| %>
-        <li>
-          <%= link_to book.title, work_path(book.id) %> by <%= book.creator %> <br /> <%= book.votes.count %> Votes
-        </li>
-        <% end %>
-      </ul>
-    </ul>
-  </div>
-  <div>
+  </section>
+  <section class="top-ten">
     <h3>Top Albums</h3>
     <ul>
-      <ul>
-        <% @works_albums[0..9].each do |album| %>
-        <li>
-          <%= link_to album.title, work_path(album.id) %> by <%= album.creator %> <br /> <%= album.votes.count %> Votes
-        </li>
-        <% end %>
-      </ul>
+      <% @works_albums[0..9].each do |album| %>
+      <li>
+        <h4><%= link_to album.title, work_path(album.id) %> <small>by <%= album.creator %></small></h4> <p> <%= album.votes.count %> Votes </p>
+      </li>
+      <% end %>
     </ul>
-  </div>
+  </section>
+</section>
 </section>

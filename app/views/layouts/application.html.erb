@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Gudea:400,700" rel="stylesheet">
+
 
   <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
@@ -23,34 +25,37 @@
       <a class="button" href="/works">View all media</a>
       <a class="button" href="/works/new">Add a new work</a>
       <a class="button" href="/users">View all users</a>
-      <% if @user && @user.id %>
-      <%=link_to "Logged in as #{@user.name}", user_path(@user.id), method: :get, class: "button" %>
-      <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
-      <% else %>
-      <a class="button" href="/login">Login</a>
-      <%end%>
+      <div class="float-right" div>
+        <% if @user && @user.id %>
+        <%=link_to "Logged in as #{@user.name}", user_path(@user.id), method: :get, class: "button" %>
+        <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
+        <% else %>
+        <a class="button" href="/login">Login</a>
+        <%end%>
+      </div>
+
     </nav>
 
 
   </header>
 
-  <main>
+  <main class="row">
     <% flash.each do |name, message| %>
-  <section class = " row status <%= name%> " >
+    <section class = " row status <%= name%> " >
 
-    <h3><%= message %></h3>
-    <% @object = @work || @object = @vote || @object = @user %>
-    <% if @object != nil && @object.errors.any?%>
+      <h3><%= message %></h3>
+      <% @object = @work || @object = @vote || @object = @user %>
+      <% if @object != nil && @object.errors.any?%>
       <ul>
         <% @object.errors.each do |field, message| %>
-          <li>
-            <strong><%= field %>:</strong> <%= message %>
-          </li>
+        <li>
+          <strong><%= field %>:</strong> <%= message %>
+        </li>
         <% end %>
       </ul>
+      <% end %>
+    </section>
     <% end %>
-  </section>
-<% end %>
 
     <%= yield %>
   </main>

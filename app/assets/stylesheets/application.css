@@ -26,18 +26,56 @@
     padding: 25px 20px 10px 20px;
 }
 
-body * {
-  font-family: "Gudea", sans-serif;
+.row {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 
-.row {
-    margin-right: auto;
-    margin-left: auto;
+body *{
+  font-family: 'Gudea', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+}
+
+.page-header h2 small {
+    color: white;
+    font-size: 32px;
+}
+
+.page-header h2 a {
+    color: #FF5722;
+    padding-right: 25px;
+    margin-right: 15px;
+    border-right: white 2px solid;
+    font-size: 40px;
+    text-decoration-style: solid;
+}
+
+.page-header h2 {
+    text-align: center;
+    margin: 25px auto 40px auto;
+}
+
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+
+}
+
+a {
+  text-decoration: none;
 }
 
 .button {
   background-color: #26A69A;
+}
+
+@media print, screen and (min-width: 40em)
+h2, .h2 {
+    font-size: 2.5rem;
 }
 
 .status {
@@ -49,4 +87,36 @@ body * {
 
 .status.success h3 {
     color: #8a8a8a;
+}
+
+main {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+a, h3 {
+    color: #26A69A;
+}
+
+section {
+  display: block;
+}
+
+
+thead th, thead td, tfoot th, tfoot td {
+    padding: 0.5rem 0.625rem 0.625rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.status {
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    padding: 20px 25px;
+    margin-top: 30px;
+}
+
+.status.success h3 {
+    font-weight: normal;
+    font-size: 1em;
 }

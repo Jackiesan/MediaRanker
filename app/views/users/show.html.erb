@@ -3,6 +3,36 @@
   Joined site <%= @user.created_at.strftime('%b %d, %Y')%>
 </p>
 <h4>Votes</h4>
-<p>
-  TODO: TABLE WITH VOTES
-</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Media Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Category</th>
+      <th>Voted On</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.votes.each do |v|  %>
+    <tr>
+      <td>
+        <%= link_to v.work.title, work_path(v.work.id) %>
+      </td>
+      <td>
+        <%= v.work.creator %>
+      </td>
+      <td>
+        <%= v.work.publication_year %>
+      </td>
+      <td>
+        <%= v.work.category %>
+      </td>
+      <td>
+        <%= v.created_at.strftime('%b %d, %Y') %>
+      </td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>
