@@ -1,9 +1,10 @@
 require "test_helper"
 
 describe Work do
+  let(:book_1) { works(:book_1) }
+
   it "must be valid" do
-    work = works(:book_1)
-    value(work).must_be :valid?
+    value(book_1).must_be :valid?
   end
 
   it "must be invalid without a category" do
@@ -19,7 +20,7 @@ describe Work do
   end
 
   it "must be valid with a supported category type" do
-    work = works(:book_1)
+    work = book_1
 
     categories = ["movie", "book", "album"]
     categories.each do |category|
@@ -33,6 +34,17 @@ describe Work do
     work = works(:book_1)
     work.category = "safkldjsaf"
     value(work).wont_be :valid?
+  end
+  let(:duplicate_book_title) { Work.create(title: "Goodnight Moon") }
+
+
+  it "work will not be created if title is not unique within category" do
+    value(duplicate_book_title).wont_be :valid?
+  end
+
+  it "will create work with duplicate title but with different category" do
+    new_work = Work.create(title: "Goodnight Moon", category: "movie")
+    new_work.must_be :valid?
   end
 
 end
