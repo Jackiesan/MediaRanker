@@ -17,3 +17,15 @@ movie_1:
   creator: Ian Fleming
   publication_year: 1960
   description: Spy movie
+book_2:
+  category: book
+  title: Eclipse
+  creator: Margaret Brown
+  publication_year: 2000
+  description: About the moon eclipse.
+book_3:
+  category: book
+  title: OOD
+  creator: Metz
+  publication_year: 2010
+  description: Ruby object oriented design

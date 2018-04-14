@@ -36,3 +36,33 @@ describe Work do
   end
 
 end
+
+describe Work do
+  describe "work#self.spotlight method" do
+    #most voted work book_1
+    let(:book_1) { works(:book_1) }
+
+    it "selects the work with the top vote" do
+      top_voted = Work.spotlight
+      top_voted.must_equal book_1
+    end
+  end
+
+  describe "work#order_by_vote method" do
+    # works in desc order from most to least votes
+    let(:book_1) { works(:book_1) }
+    let(:movie_1) { works(:movie_1) }
+    let(:book_2) { works(:book_2) }
+    let(:book_3) { works(:book_3) }
+
+
+    it "arranges works in descending order from most votes to least" do
+      ordered_works = Work.order_by_vote
+      ordered_works[0].must_equal book_1
+      ordered_works[1].must_equal movie_1
+      ordered_works[2].must_equal book_2
+      ordered_works[3].must_equal book_3
+
+    end
+  end
+end

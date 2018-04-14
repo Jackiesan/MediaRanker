@@ -15,3 +15,12 @@ vote_2:
 vote_3:
   user: dee
   work: book_1
+vote_4:
+  user: diane
+  work: movie_1
+vote_5:
+  user: leslie
+  work: movie_1
+vote_6:
+  user: enrique
+  work: book_2
