@@ -11,11 +11,13 @@
 <section class="top-ten-container">
   <section class="top-ten">
     <h3>Top Movies</h3>
-    <% @works_movies[0..9].each do |movie| %>
-    <li>
-      <h4><%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %><small>by <%= movie.creator %></small></h4> <p> <%= movie.votes.count %> Votes </p>
-    </li>
-    <% end %>
+    <ul>
+      <% @works_movies[0..9].each do |movie| %>
+      <li>
+        <h4><%= link_to movie.title, work_path(movie.id) %> <small>by <%= movie.creator %></small></h4> <p> <%= movie.votes.count %> Votes </p>
+      </li>
+      <% end %>
+    </ul>
   </section>
   <section class="top-ten">
     <h3>Top Books</h3>

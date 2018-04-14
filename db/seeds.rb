@@ -22,13 +22,58 @@ CSV.foreach(WORK_FILE, :headers => true) do |row|
   successful = work.save
   if !successful
     work_failures << work
-    puts "Failed to save driver: #{work.inspect}"
+    puts "Failed to save work: #{work.inspect}"
   else
     puts "Created work: #{work.inspect}"
   end
 end
 
-puts "Added #{Work.count} driver records"
-puts "#{work_failures.length} drivers failed to save"
+puts "Added #{Work.count} work records"
+puts "#{work_failures.length} works failed to save"
+
+puts "done"
+
+
+USER_FILE = Rails.root.join('db', 'seed_data', 'user_seeds.csv')
+puts "Loading raw work data from #{USER_FILE}"
+
+user_failures = []
+CSV.foreach(USER_FILE, :headers => true) do |row|
+  user = User.new
+  user.name = row['name']
+  successful = user.save
+  if !successful
+    user_failures << user
+    puts "Failed to save user: #{user.inspect}"
+  else
+    puts "Created user: #{user.inspect}"
+  end
+end
+
+puts "Added #{User.count} user records"
+puts "#{user_failures.length} users failed to save"
+
+puts "done"
+
+
+VOTE_FILE = Rails.root.join('db', 'seed_data', 'vote_seeds.csv')
+puts "Loading raw work data from #{VOTE_FILE}"
+
+vote_failures = []
+CSV.foreach(VOTE_FILE, :headers => true) do |row|
+  vote = Vote.new
+  vote.user_id = row['user_id']
+  vote.work_id = row['work_id']
+  successful = vote.save
+  if !successful
+    vote_failures << vote
+    puts "Failed to save vote: #{vote.inspect}"
+  else
+    puts "Created work: #{vote.inspect}"
+  end
+end
+
+puts "Added #{Vote.count} vote records"
+puts "#{vote_failures.length} votes failed to save"
 
 puts "done"
