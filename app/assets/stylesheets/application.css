@@ -73,10 +73,7 @@ a {
   background-color: #26A69A;
 }
 
-@media print, screen and (min-width: 40em)
-h2, .h2 {
-    font-size: 2.5rem;
-}
+
 
 .status {
     border-radius: 5px;
