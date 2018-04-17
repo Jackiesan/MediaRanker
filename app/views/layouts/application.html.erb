@@ -30,7 +30,8 @@
         <%=link_to "Logged in as #{@user.name}", user_path(@user.id), method: :get, class: "button" %>
         <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
         <% else %>
-        <a class="button" href="/login">Login</a>
+        <!-- <a class="button" href="/login">Login</a> -->
+        <%= link_to "Login with GitHub", github_login_path, class: "button" %>
         <%end%>
       </div>
 
@@ -40,6 +41,7 @@
   </header>
 
   <main class="row">
+
     <% flash.each do |name, message| %>
     <section class = " row status <%= name%> " >
 
