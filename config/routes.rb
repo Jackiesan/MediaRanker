@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create', as: 'auth_callback'
   get '/auth/github', as: 'github_login'
   root 'works#main'
   post 'works/:id/upvote', to: 'works#upvote', as: 'upvote'

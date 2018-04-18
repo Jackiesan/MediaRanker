@@ -1,25 +1,38 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# dan:
+#   name: dan
+#
+# chris:
+#   name: chris
+#
+# dee:
+#   name: dee
+#
+# diane:
+#   name: diane
+#
+# leslie:
+#   name: leslie
+#
+# enrique:
+#   name: enrique
+#
+# josh:
+#   name: josh
+#
+# alex:
+#   name: alex
 
-dan:
-  name: dan
 
-chris:
-  name: chris
+ada:
+  provider: github
+  uid: 12345
+  email: ada@adadevelopersacademy.org
+  name: Ada
 
-dee:
-  name: dee
-
-diane:
-  name: diane
-
-leslie:
-  name: leslie
-
-enrique:
-  name: enrique
-
-josh:
-  name: josh
-
-alex:
-  name: alex
+grace:
+  provider: github
+  uid: 13371337
+  email: grace@hooper.net
+  name: graceful_hoops
